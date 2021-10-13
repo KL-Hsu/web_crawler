@@ -5,14 +5,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import pyautogui as py
+
 '''
 Author: Allen Hsu 
 Date: 2021/09/10
-Input:
-Output:
+Input: None
+Output: downloaded .csv file of all data per chromosome to default download folder
+Target database: NonStopDb(http://nonstopdb.dkfz.de/)
 '''
-
-
 
 #Define the browser and use chromedriver to open it -> maximize window -> go to address
 browser = webdriver.Chrome(executable_path='Dependency/chromedriver')
@@ -23,23 +23,23 @@ browser.get('http://nonstopdb.dkfz.de/')
 element_1 = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="sidebar.menu"]/li[3]/a')))
 print('YES!')
 element_1.click()
-#locate to the region box
+#locate to the region box and click
 element_2 = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.ID,'regionTab.region-currInput')))
 print('YES!')
 element_2.click()
 py.typewrite('1-248956422',interval=0.01)
-#locate to the submit button
+#locate to the submit button and click
 element_3 = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.ID,'regionTab.submit')))
 print('YES!')
 element_3.click()
 
-#locate to download button
+#locate to download button and click 
 WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="DataTables_Table_0_wrapper"]/div[4]/div[1]/div/table/thead/tr/th[2]')))
 
 element_4 = browser.find_element_by_id('regionTab.table-DownloadAll')
 element_4.click()
 
-#locate to chromosome box
+#locate back to chromosome box
 time.sleep(3)
 for i in range(24):
     element_5 = browser.find_element_by_xpath('//*[@id="shiny-tab-regionTab"]/div[1]/div[1]/div/div/div/div[1]')
@@ -47,9 +47,8 @@ for i in range(24):
     py.press('down')
     py.press('return')
 
-    #locate to download button
     time.sleep(3)
-
+    #locate to download button
     browser.execute_script("window.scrollTo(0, document.body.scrollHeight)") 
 
     element_4 = browser.find_element_by_id('regionTab.table-DownloadAll')
