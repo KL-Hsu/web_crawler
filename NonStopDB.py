@@ -39,9 +39,9 @@ WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="
 element_4 = browser.find_element_by_id('regionTab.table-DownloadAll')
 element_4.click()
 
-#locate back to chromosome box
 time.sleep(3)
 for i in range(24):
+    #locate back to chromosome box
     element_5 = browser.find_element_by_xpath('//*[@id="shiny-tab-regionTab"]/div[1]/div[1]/div/div/div/div[1]')
     element_5.click()
     py.press('down')
