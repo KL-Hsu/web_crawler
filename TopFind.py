@@ -5,6 +5,7 @@ import time
 '''
 Author: Allen Hsu 
 Date: 2021/10/13
+Purpose: Download table of protein cleavage sites by given Uniprot ID(s) from TopFind database
 Input: A list file of Uniprot IDs 
 Output: Downloaded .csv file (cleavage site info) per each ID
         Three log files contains info of running time, protein without cleavage, Error 

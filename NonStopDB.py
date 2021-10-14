@@ -9,6 +9,7 @@ import pyautogui as py
 '''
 Author: Allen Hsu 
 Date: 2021/09/10
+Purpose: Automatically download nonstop mutations info in Cancer from NonStopDb  
 Input: None
 Output: downloaded .csv file of all data per chromosome to default download folder
 Target database: NonStopDb(http://nonstopdb.dkfz.de/)
